@@ -50,6 +50,7 @@ func NewLogger() *logrus.Logger {
 			return "", fmt.Sprintf("%s:%d", filename, f.Line)
 		},
 	}
+	logger.AddHook(&ContextFieldsHook{})
 	return logger
 }
 
