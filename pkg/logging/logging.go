@@ -59,9 +59,12 @@ func readModuleName() string {
 		return ""
 	}
 
-	if len(info.Deps) == 0 {
-		return ""
+	var moduleName = ""
+	for _, dep := range info.Deps {
+		if dep.Version == "(devel)" {
+			moduleName = dep.Path
+		}
 	}
 
-	return info.Deps[0].Path
+	return moduleName
 }
