@@ -24,7 +24,7 @@ func DefaultLogger() *logrus.Logger {
 
 func NewLogger() *logrus.Logger {
 	moduleName := readModuleName()
-	fmt.Println("module name is", moduleName)
+
 	logger := logrus.New()
 	logger.SetReportCaller(true)
 	logger.Formatter = &logrus.TextFormatter{
@@ -68,3 +68,5 @@ func readModuleName() string {
 
 	return moduleName
 }
+
+var _ = DefaultLogger()
